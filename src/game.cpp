@@ -2,9 +2,30 @@
 
 #include <iostream>
 
+int choice() {
+    std::cout << "Choose difficulty: 1) Easy (1-10)  2) Medium (1-20)  3) Hard (1-100)\n";
+    int choice;
+    std::cin >> choice;
+    switch (choice) {
+    case 1:
+        return 10;
+    case 2:
+        return 20;
+    case 3:
+        return 100;
+    default:
+        std::cout << "Invalid choice. Using Medium.\n";
+        return 20;
+    }
+}
+
+
 void playGame() { // playGame function from the module
+
+    
+    const int maximum = choice();
     const int minimum = 1;
-    const int maximum = 20;
+
     const int target = randomNumber(minimum, maximum);
 
     std::cout << "=== GUESSQUEST ===\n";
