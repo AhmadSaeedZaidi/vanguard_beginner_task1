@@ -1,8 +1,8 @@
-#include "game.h"
+#include "game.h" //importing game module
 
 #include <iostream>
 
-void playGame() {
+void playGame() { // playGame function from the module
     const int minimum = 1;
     const int maximum = 20;
     const int target = randomNumber(minimum, maximum);
@@ -16,12 +16,12 @@ void playGame() {
         std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
-        if (!(std::cin >> guess)) {
+        if (!(std::cin >> guess)) { //checking if any integer is inputted 
             std::cout << "\nNo integer read. Ending the game.\n";
             return;
         }
 
-        if (guess == target) {
+        if (guess == target) { // win con
             std::cout << "You win!\n";
             return;
         }
