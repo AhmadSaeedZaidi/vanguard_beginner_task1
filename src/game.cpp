@@ -13,6 +13,12 @@ void playGame() {
 
     int attemptsRemaining = 5;
     while (true) {
+
+        if (attemptsRemaining == 0) {
+            std::cout << "You lose! The number was " << target << ".\n";
+            return;
+        }
+
         std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
@@ -26,11 +32,17 @@ void playGame() {
             return;
         }
 
-        --attemptsRemaining;
-        if (attemptsRemaining == 0) {
-            std::cout << "You lose! The number was " << target << ".\n";
-            return;
+        else if (guess < target) {
+            std::cout << "Too low!\n\n";
+        } 
+        
+        else {
+            std::cout << "Too high!\n\n";
         }
-        std::cout << "Try again!\n\n";
+
+        --attemptsRemaining;
+        if (attemptsRemaining > 0){
+            std::cout << "Try again!\n\n";
+        }
     }
 }
