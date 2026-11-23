@@ -11,7 +11,9 @@ void playGame() {
     std::cout << "I'm thinking of a number between " << minimum
               << " and " << maximum << ".\n\n";
 
+    int attemptsRemaining = 5;
     while (true) {
+        std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
         if (!(std::cin >> guess)) {
@@ -24,10 +26,16 @@ void playGame() {
             return;
         }
 
+        --attemptsRemaining;
+        if (attemptsRemaining == 0) {
+            std::cout << "You lose! The number was " << target << ".\n";
+            return;
+        }
+
         if (guess < target) {
-            std::cout << "Too low!\n\n";
+            std::cout << "Too low! Try again!\n\n";
         } else {
-            std::cout << "Too high!\n\n";
+            std::cout << "Too high! Try again!\n\n";
         }
     }
 }
