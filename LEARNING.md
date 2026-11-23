@@ -1,5 +1,5 @@
 # 1. What CMake does and how it differs from a compiler? 
-CMake reads the CMakeLists.txt and then writes the builds files. 
+CMake reads the CMakeLists.txt and then writes the builds files and Ninja runs g++ to compile it. 
 For example during this activity when we first ran the cmake build it threw an error saying no file named games.cpp found and it was a typo and we corrected it and after that we got a header file missing error which we had to fix by adding a targetted include directory so that cmake knows that the header file is located in that directory and after that we got a randomNumber undefined and it was due to a file missing caught by the linker who couldnt find it anywhere in the files mentioned in the CMakeLists.txt
 
 
