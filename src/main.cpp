@@ -1,5 +1,5 @@
 #include "game.h"
 
 int main() {
-    playGame();
+    playGame(); //calling our game function
 }
