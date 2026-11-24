@@ -6,6 +6,7 @@ void playGame() {
     const int minimum = 1;
     const int maximum = 20;
     const int target = randomNumber(minimum, maximum);
+    int score;
 
     std::cout << "=== GUESSQUEST ===\n";
     std::cout << "I'm thinking of a number between " << minimum
@@ -22,7 +23,8 @@ void playGame() {
         }
 
         if (guess == target) {
-            std::cout << "You win!\n";
+            score=attemptsRemaining*100;
+            std::cout << "You win!\nScore: "<<score<<"\n";
             return;
         }
 
