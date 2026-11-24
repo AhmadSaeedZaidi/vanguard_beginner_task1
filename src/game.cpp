@@ -3,11 +3,13 @@
 #include <iostream>
 
 void playGame() {
+    while(true){
+    char Choice;
     const int minimum = 1;
     const int maximum = 20;
     const int target = randomNumber(minimum, maximum);
 
-    std::cout << "=== GUESSQUEST ===\n";
+    std::cout << "\n=== GUESSQUEST ===\n";
     std::cout << "I'm thinking of a number between " << minimum
               << " and " << maximum << ".\n\n";
 
@@ -23,13 +25,26 @@ void playGame() {
 
         if (guess == target) {
             std::cout << "You win!\n";
-            return;
+
+
+            std::cout<<"\nDo you want to play again ? (Y/N) : "; // Asks to play again after win
+            std::cin>>Choice;
+            if(Choice=='N' || Choice=='n')
+                return;
+            else 
+                break;
         }
 
         --attemptsRemaining;
         if (attemptsRemaining == 0) {
             std::cout << "You lose! The number was " << target << ".\n";
-            return;
+            
+            std::cout<<"\nDo you want to play again ? (Y/N) : "; //Added the Play Again Feature 
+            std::cin>>Choice;
+            if(Choice=='N'||Choice=='n')
+                return;
+            else 
+                break;
         }
 
         if (guess < target) {
@@ -38,4 +53,5 @@ void playGame() {
             std::cout << "Too high! Try again!\n\n";
         }
     }
+}
 }
