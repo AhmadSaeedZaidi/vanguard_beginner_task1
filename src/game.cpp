@@ -6,12 +6,15 @@ void playGame() {
     const int minimum = 1;
     const int maximum = 20;
     const int target = randomNumber(minimum, maximum);
+    int score;
 
     std::cout << "=== GUESSQUEST ===\n";
     std::cout << "I'm thinking of a number between " << minimum
               << " and " << maximum << ".\n\n";
 
+    int attemptsRemaining = 5;
     while (true) {
+        std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
         if (!(std::cin >> guess)) {
@@ -20,10 +23,21 @@ void playGame() {
         }
 
         if (guess == target) {
-            std::cout << "You win!\n";
+            score=attemptsRemaining*100;
+            std::cout << "You win!\nScore: "<<score<<"\n";
             return;
         }
 
-        std::cout << "Try again!\n\n";
+        --attemptsRemaining;
+        if (attemptsRemaining == 0) {
+            std::cout << "You lose! The number was " << target << ".\n";
+            return;
+        }
+
+        if (guess < target) {
+            std::cout << "Too low!\n\n";
+        } else {
+            std::cout << "Too high!\n\n";
+        }
     }
 }
